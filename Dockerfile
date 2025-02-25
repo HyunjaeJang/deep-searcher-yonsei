@@ -12,7 +12,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # DeepSearcher 저장소 클론 및 설치
-RUN git clone https://github.com/zilliztech/deep-searcher.git . && \
+RUN git clone https://github.com/HyunjaeJang/deep-searcher-yonsei . && \
     python3.10 -m venv .venv && \
     . .venv/bin/activate && \
     pip install -e . && \
@@ -23,9 +23,6 @@ ENV OPENAI_API_KEY= #TODO: APIKEY 삽입
 ENV FIRECRAWL_API_KEY=#TODO: APIKEY 삽입
 # 웹 서비스 실행 시 사용할 포트 노출 (예: 8000)
 # entrypoint.sh 복사 및 권한 부여
-COPY entrypoint.sh /entrypoint.sh
-COPY config.yaml /config.yaml
-COPY deepsearcher/llm/ollama_llm.py /deepsearcher/llm/ollama_llm.py
 
 RUN chmod +x /entrypoint.sh
 

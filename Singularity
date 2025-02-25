@@ -19,20 +19,14 @@ From: ubuntu:20.04
     cd /app
 
     # DeepSearcher 저장소 클론 및 설치
-    git clone https://github.com/zilliztech/deep-searcher.git . && \
+    git clone https://github.com/HyunjaeJang/deep-searcher-yonsei . && \
     python3.10 -m venv .venv && \
     . .venv/bin/activate && \
     pip install -e . && \
     pip install ollama
 
     # entrypoint.sh 복사 및 권한 부여
-    cp /entrypoint.sh /entrypoint.sh
     chmod +x /entrypoint.sh
-
-%files
-    entrypoint.sh /entrypoint.sh
-    config.yaml /config.yaml
-    deepsearcher/llm/ollama_llm.py /deepsearcher/llm/ollama_llm.py
 
 %startscript
     exec /entrypoint.sh
