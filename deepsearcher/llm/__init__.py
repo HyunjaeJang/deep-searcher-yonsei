@@ -16,4 +16,5 @@ __all__ = [
     "Gemini",
     "XAI",
     "Anthropic",
+    "Ollama"
 ]
