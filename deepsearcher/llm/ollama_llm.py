@@ -3,7 +3,7 @@ from typing import Dict, List
 from deepsearcher.llm.base import BaseLLM, ChatResponse
 
 
-class OllamaAI(BaseLLM):
+class Ollama(BaseLLM):
     def __init__(self, model: str = "llama3.1", **kwargs):
         from ollama import Client
         self.model = model

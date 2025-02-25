@@ -26,7 +26,7 @@ From: ubuntu:20.04
     pip install ollama
 
     # entrypoint.sh 복사 및 권한 부여
-    chmod +x /entrypoint.sh
+    chmod +x entrypoint.sh
 
 %startscript
-    exec /entrypoint.sh
+    exec entrypoint.sh
