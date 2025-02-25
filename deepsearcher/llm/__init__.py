@@ -6,6 +6,7 @@ from .openai_llm import OpenAI
 from .siliconflow import SiliconFlow
 from .together_ai import TogetherAI
 from .xai import XAI
+from .ollama_llm import Ollama
 
 __all__ = [
     "DeepSeek",
