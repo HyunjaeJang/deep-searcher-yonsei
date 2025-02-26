@@ -14,12 +14,8 @@ From: ubuntu:20.04
     apt-get update && \
     apt-get install -y python3.10 python3.10-venv python3-pip git
 
-    # 작업 디렉토리 설정
-    mkdir -p /app
-    cd /app
-
     # DeepSearcher 저장소 클론 및 설치
-    git clone https://github.com/HyunjaeJang/deep-searcher-yonsei . && \
+    # git clone https://github.com/HyunjaeJang/deep-searcher-yonsei . && \
     python3.10 -m venv .venv && \
     . .venv/bin/activate && \
     pip install -e . && \

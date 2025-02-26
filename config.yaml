@@ -12,9 +12,9 @@ provide_settings:
 ##      api_key: "sk-xxxx"  # Uncomment to override the `DEEPSEEK_API_KEY` set in the environment variable
 ##      base_url: ""
 
-    provider: "Ollama"
-    config:
-      model: "llama3.1"  # "Ollama"
+    # provider: "Ollama"
+    # config:
+    #   model: "llama3.1"  # "Ollama"
       # base_url: "http://localhost:111"
 
 #    provider: "SiliconFlow"
