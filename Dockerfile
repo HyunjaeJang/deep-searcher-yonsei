@@ -14,8 +14,8 @@ WORKDIR /app
 COPY . /app
 
 # DeepSearcher 저장소 클론 및 설치
-RUN python3.10 -m venv .venv && \
-    . .venv/bin/activate && \
+RUN python3.10 -m venv /opt/venv && \
+    . /opt/venv/bin/activate && \
     pip install -e . && \
     pip install ollama
 
@@ -25,4 +25,4 @@ RUN python3.10 -m venv .venv && \
 EXPOSE 8000
 
 # ENTRYPOINT로 entrypoint.sh 실행
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
