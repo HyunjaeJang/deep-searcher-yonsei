@@ -32,6 +32,8 @@ def load_from_local_files(
         paths_or_directory = [paths_or_directory]
     all_docs = []
     for path in tqdm(paths_or_directory, desc="Loading files"):
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"Error: File or directory '{path}' does not exist.")
         if os.path.isdir(path):
             docs = file_loader.load_directory(path)
         else:
@@ -68,10 +70,7 @@ def load_from_website(
         force_new_collection=force_new_collection,
     )
 
-    all_docs = []
-    for url in tqdm(urls, desc="Loading from websites"):
-        docs = web_crawler.crawl_url(url, **crawl_kwargs)
-        all_docs.extend(docs)
+    all_docs = web_crawler.crawl_urls(urls, **crawl_kwargs)
 
     chunks = split_docs_to_chunks(all_docs)
     chunks = embedding_model.embed_chunks(chunks)

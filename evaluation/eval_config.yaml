@@ -18,6 +18,12 @@ provide_settings:
 ##      api_key: "xxxx"  # Uncomment to override the `SILICONFLOW_API_KEY` set in the environment variable
 ##      base_url: ""
 
+#    provider: "PPIO"
+#    config:
+#      model: "deepseek/deepseek-v3/community"
+##      api_key: "xxxx"  # Uncomment to override the `PPIO_API_KEY` set in the environment variable
+##      base_url: ""
+
 #    provider: "TogetherAI"
 #    config:
 #      model: "deepseek-ai/DeepSeek-V3"
@@ -29,6 +35,11 @@ provide_settings:
 #      api_version: ""
 ##      azure_endpoint: "xxxx"  # Uncomment to override the `AZURE_OPENAI_ENDPOINT` set in the environment variable
 ##      api_key: "xxxx"  # Uncomment to override the `AZURE_OPENAI_KEY` set in the environment variable
+
+#    provider: "Ollama"
+#    config:
+#      model: "qwen2.5:3b"
+##      base_url: ""
 
   embedding:
     provider: "OpenAIEmbedding"

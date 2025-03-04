@@ -5,6 +5,7 @@ import warnings
 from deepsearcher.configuration import Configuration, init_config
 from deepsearcher.offline_loading import load_from_local_files, load_from_website
 from deepsearcher.online_query import query
+from deepsearcher.tools import log
 
 httpx_logger = logging.getLogger("httpx")  # disable openai's logger output
 httpx_logger.setLevel(logging.WARNING)
@@ -20,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser(prog="deepsearcher", description="Deep Searcher.")
     ## Arguments of query
     parser.add_argument("--query", type=str, default="", help="query question or search topic.")
-    parser.add_argument(
+    parser.add_argument(  # TODO: Will move this init arg into config
         "--max_iter",
         type=int,
         default=3,
@@ -57,7 +58,12 @@ def main():
 
     args = parser.parse_args()
     if args.query:
-        query(args.query, max_iter=args.max_iter)
+        final_answer, refs, consumed_tokens = query(args.query, max_iter=args.max_iter)
+        log.color_print("\n==== FINAL ANSWER====\n")
+        log.color_print(final_answer)
+        log.color_print("\n### References\n")
+        for i, ref in enumerate(refs):
+            log.color_print(f"{i + 1}. {ref.text[:60]}… {ref.reference}")
     else:
         if args.load:
             urls = [url for url in args.load if url.startswith("http")]
